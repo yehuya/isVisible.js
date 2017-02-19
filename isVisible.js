@@ -1,3 +1,8 @@
+/**
+ * isVisible.js
+ * https://github.com/yehuya/isVisible.js
+ */
+
 (function(){
     
     var _visible = [];
