@@ -61,13 +61,16 @@
         });
     }
 
+    // invok it when window load 
+    window.addEventListener('load', currentYPosition);    
+
     // invok it when document ready
     window.addEventListener('DOMContentLoaded', currentYPosition);
 
-    // Chrome scroll
+    // scroll
     window.addEventListener('mousewheel', currentYPosition);
 
-    // Firefox
+    // firefox scroll
     window.addEventListener('DOMMouseScroll', currentYPosition);
 
     // attach it to document element
