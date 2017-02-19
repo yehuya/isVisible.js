@@ -13,7 +13,7 @@
     // current scroll Y postiion 
     function currentYPosition(event){
         _top = document.body.scrollTop; // Math.abs(document.body.getBoundingClientRect().top);
-        _bottom = _top + window.innerHeight;
+        _bottom = _top + window.innerHeight * .9;
 
         nowVisible();
     }
@@ -60,6 +60,10 @@
             this.isVisible(callback);
         });
     }
+
+    // for mobile touch
+    window.addEventListener('touchmove', currentYPosition);
+    window.addEventListener('touchend', currentYPosition);
 
     // invok it when window load 
     window.addEventListener('load', currentYPosition);    
