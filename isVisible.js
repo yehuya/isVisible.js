@@ -11,15 +11,17 @@
     var _className = 'isVisible';
 
     // current scroll Y postiion 
+    // @param Object (window event)
     function currentYPosition(event){
         _top = document.body.scrollTop; // Math.abs(document.body.getBoundingClientRect().top);
         _bottom = _top + window.innerHeight * .9;
 
-        nowVisible();
+        nowVisible(event);
     }
 
     // check if there is elements that right now is visible
-    function nowVisible(){
+    // @param Object (window event)
+    function nowVisible(event){
         for(var i = 0 ; i < _visible.length ; i++){
             if(_visible[i].top < _bottom && _visible[i].top > _top){
                 if(_visible[i].elem){
@@ -27,7 +29,7 @@
                     // add class
                     _visible[i].elem.classList.add(_className);
                     // invok callback
-                    if(typeof _visible[i].callback == 'function') _visible[i].callback();
+                    if(typeof _visible[i].callback == 'function') _visible[i].callback(event);
                 }
 
                 // remove this elem from this checking
